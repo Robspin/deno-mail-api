@@ -29,8 +29,8 @@ export const transporter = nodemailer.createTransport({
     port: env.EMAIL_PORT,
     secure: false,
     auth: {
-        user: env.SOLUTION1_EMAIL_ADDRESS,
-        pass: env.SOLUTION1_EMAIL_PASSWORD
+        user: env.SMTP_EMAIL_ADDRESS,
+        pass: env.SMTP_EMAIL_PASSWORD
     }
 })
 
@@ -42,7 +42,7 @@ export type Mail = {
 
 export const sendMail = async ({ to, text, subject }: Mail) => {
     const email = {
-        from: env.SOLUTION1_EMAIL_ADDRESS,
+        from: env.SMTP_EMAIL_ADDRESS,
         to,
         subject,
         text
